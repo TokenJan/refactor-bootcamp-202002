@@ -15,15 +15,15 @@ public class OrderReceipt {
     }
 
     public String printReceipt() {
+        double totalSalesTax = 0d;
+        double total = 0d;
+        double taxRate = .10;
         StringBuilder output = new StringBuilder();
 
         output.append("======Printing Orders======\n");
-
         output.append(order.getCustomerName());
         output.append(order.getCustomerAddress());
 
-        double totalSalesTax = 0d;
-        double total = 0d;
         for (LineItem lineItem : order.getLineItems()) {
             output.append(lineItem.getDescription());
             output.append('\t');
@@ -34,7 +34,7 @@ public class OrderReceipt {
             output.append(lineItem.totalAmount());
             output.append('\n');
 
-            double salesTax = lineItem.totalAmount() * .10;
+            double salesTax = lineItem.totalAmount() * taxRate;
             totalSalesTax += salesTax;
 
             total += lineItem.totalAmount() + salesTax;
