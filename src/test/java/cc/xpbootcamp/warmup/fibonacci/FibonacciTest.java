@@ -16,4 +16,9 @@ public class FibonacciTest {
     public void should_throw_exception_when_calculate_given_number_0() {
         fibonacci.calculate(0);
     }
+
+    @Test(expected = NumberOutofRangeException.class)
+    public void should_throw_exception_when_calculate_given_number_51() {
+        fibonacci.calculate(51);
+    }
 }
