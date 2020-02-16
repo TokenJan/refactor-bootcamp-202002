@@ -3,9 +3,12 @@ package cc.xpbootcamp.warmup.cashier;
 import java.util.List;
 
 public class Order {
-    String customerName;
-    String customerAddress;
-    List<LineItem> lineItemList;
+    private String customerName;
+    private String customerAddress;
+    private List<LineItem> lineItemList;
+    private double totalSalesTax = 0d;
+    private double total = 0d;
+    private static final double TAX_RATE = .10;
 
     public Order(String customerName, String customerAddress, List<LineItem> lineItemList) {
         this.customerName = customerName;
@@ -13,15 +16,31 @@ public class Order {
         this.lineItemList = lineItemList;
     }
 
-    public String getCustomerName() {
-        return customerName;
-    }
+    public String getReceipt() {
+        StringBuilder output = new StringBuilder();
+        output.append("======Printing Orders======\n");
+        output.append(customerName);
+        output.append(customerAddress);
 
-    public String getCustomerAddress() {
-        return customerAddress;
-    }
+        for (LineItem lineItem : lineItemList) {
+            output.append(lineItem.getDescription());
+            output.append('\t');
+            output.append(lineItem.getPrice());
+            output.append('\t');
+            output.append(lineItem.getQuantity());
+            output.append('\t');
+            output.append(lineItem.totalAmount());
+            output.append('\n');
 
-    public List<LineItem> getLineItems() {
-        return lineItemList;
+            double salesTax = lineItem.totalAmount() * TAX_RATE;
+            totalSalesTax += salesTax;
+
+            total += lineItem.totalAmount() + salesTax;
+        }
+
+        output.append("Sales Tax").append('\t').append(totalSalesTax);
+
+        output.append("Total Amount").append('\t').append(total);
+        return output.toString();
     }
 }
