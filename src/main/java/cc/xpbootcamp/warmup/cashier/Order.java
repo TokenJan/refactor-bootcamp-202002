@@ -23,23 +23,13 @@ public class Order {
         output.append(customerAddress);
 
         for (LineItem lineItem : lineItemList) {
-            output.append(lineItem.getDescription());
-            output.append('\t');
-            output.append(lineItem.getPrice());
-            output.append('\t');
-            output.append(lineItem.getQuantity());
-            output.append('\t');
-            output.append(lineItem.totalAmount());
-            output.append('\n');
-
-            double salesTax = lineItem.totalAmount() * TAX_RATE;
+            output.append(lineItem.toString());
+            double salesTax = lineItem.getTotalAmount() * TAX_RATE;
             totalSalesTax += salesTax;
-
-            total += lineItem.totalAmount() + salesTax;
+            total += lineItem.getTotalAmount() + salesTax;
         }
 
         output.append("Sales Tax").append('\t').append(totalSalesTax);
-
         output.append("Total Amount").append('\t').append(total);
         return output.toString();
     }
