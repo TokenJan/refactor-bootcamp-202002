@@ -5,7 +5,7 @@ package cc.xpbootcamp.warmup.fibonacci;
  */
 public class Fibonacci {
 
-    public int calculate(int number) {
+    public long calculate(int number) {
         int minNumber = 50;
         int maxNumber = 1;
         int initialNumOne = 1;

@@ -36,4 +36,9 @@ public class FibonacciTest {
     public void should_return_2_when_calculate_given_number_3() {
         assert 2 == fibonacci.calculate(3);
     }
+
+    @Test()
+    public void should_return_12586269025L_when_calculate_given_number_50() {
+        assert 12586269025L == fibonacci.calculate(50);
+    }
 }
