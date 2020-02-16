@@ -21,4 +21,11 @@ public class FibonacciTest {
     public void should_throw_exception_when_calculate_given_number_51() {
         fibonacci.calculate(51);
     }
+
+    @Test()
+    public void should_return_1_when_calculate_given_number_1() {
+        assert 1 == fibonacci.calculate(1);
+    }
+
+
 }

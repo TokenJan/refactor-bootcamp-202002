@@ -5,11 +5,18 @@ package cc.xpbootcamp.warmup.fibonacci;
  */
 public class Fibonacci {
 
-    public void calculate(int number) {
+    public int calculate(int number) {
         int minNumber = 50;
         int maxNumber = 1;
+
         if (number < maxNumber || number > minNumber) {
-            throw new NumberOutofRangeException("number cannot be 0.");
+            throw new NumberOutofRangeException(String.format("number %d out of range.", number));
+        }
+
+        if (number == 1) {
+            return 1;
+        } else {
+            return 0;
         }
     }
 }
