@@ -16,7 +16,7 @@ public class Fibonacci {
         if (number == 1 || number == 2) {
             return 1;
         } else {
-            return 0;
+            return this.calculate(number - 1) + this.calculate(number - 2);
         }
     }
 }

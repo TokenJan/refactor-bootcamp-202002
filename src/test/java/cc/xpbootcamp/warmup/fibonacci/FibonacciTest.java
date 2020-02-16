@@ -29,7 +29,11 @@ public class FibonacciTest {
 
     @Test()
     public void should_return_1_when_calculate_given_number_2() {
-        assert 1 == fibonacci.calculate(1);
+        assert 1 == fibonacci.calculate(2);
     }
 
+    @Test()
+    public void should_return_2_when_calculate_given_number_3() {
+        assert 2 == fibonacci.calculate(3);
+    }
 }
