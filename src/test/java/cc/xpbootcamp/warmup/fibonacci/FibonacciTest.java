@@ -27,5 +27,9 @@ public class FibonacciTest {
         assert 1 == fibonacci.calculate(1);
     }
 
+    @Test()
+    public void should_return_1_when_calculate_given_number_2() {
+        assert 1 == fibonacci.calculate(1);
+    }
 
 }

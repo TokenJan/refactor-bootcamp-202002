@@ -13,7 +13,7 @@ public class Fibonacci {
             throw new NumberOutofRangeException(String.format("number %d out of range.", number));
         }
 
-        if (number == 1) {
+        if (number == 1 || number == 2) {
             return 1;
         } else {
             return 0;
